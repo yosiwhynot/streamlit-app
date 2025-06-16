@@ -34,7 +34,7 @@ snake_case 예: sort_array, get_data
 camelCase 예: sortArray, getData
 """, language='text')
 
-# 3. 함수 예제 정의
+# 3. 함수 정의 예제
 st.subheader("3. 함수 정의 예제: 두 수의 합과 곱")
 
 code2 = '''
@@ -75,7 +75,7 @@ st.code(code5, language='python')
 sum_only, _ = calcSumProduct(4, 6)
 st.write("실행 결과: sum =", sum_only)
 
-# 6. 튜플로 반환값 받기
+# 6. 튜플 형태로 반환값 받기
 st.subheader("6. 튜플 형태로 반환값 받기")
 
 code6 = '''
@@ -91,10 +91,10 @@ st.write("실행 결과 (튜플 전체):", result_tuple)
 st.subheader("7. 함수 주석과 타입 힌트")
 
 st.markdown("""
-- 함수 설명은 `"""` 또는 `'''`로 작성  
-- 매개변수 타입: `변수명: 자료형`  
-- 반환 타입: `-> 자료형`  
-- `help(함수)`로 확인 가능 (Streamlit에서는 텍스트로 예시 제공)  
+- 함수 설명은 <code>\"\"\"</code> 또는 <code>'''</code>로 작성  
+- 매개변수 타입: <code>변수명: 자료형</code>  
+- 반환 타입: <code>-> 자료형</code>  
+- <code>help(함수)</code>로 확인 가능 (Streamlit에서는 텍스트로 예시 제공)  
 """)
 
 code7 = '''
@@ -134,7 +134,7 @@ st.markdown("""
 """)
 
 code_args = '''
-def calcSumProduct2(*inputs):
+def calcSumProductArgs(*inputs):
     """
     입력값들의 합과 곱을 반환하는 함수 (*args 사용)
     """
@@ -145,15 +145,15 @@ def calcSumProduct2(*inputs):
 '''
 st.code(code_args, language='python')
 
-def calcSumProduct2(*inputs):
+def calcSumProductArgs(*inputs):
     plus = np.sum(inputs)
     multiple = np.prod(inputs)
     return plus, multiple
 
-sum1, product1 = calcSumProduct2(1, 2, 3)
+sum1, product1 = calcSumProductArgs(1, 2, 3)
 st.write("입력값: (1, 2, 3) → 합:", sum1, ", 곱:", product1)
 
-sum2, product2 = calcSumProduct2(1, 2, 3, 4, 5, 6, 7, 8)
+sum2, product2 = calcSumProductArgs(1, 2, 3, 4, 5, 6, 7, 8)
 st.write("입력값: (1 ~ 8) → 합:", sum2, ", 곱:", product2)
 
 # 9. **kwargs 활용
@@ -165,7 +165,7 @@ st.markdown("""
 """)
 
 code_kwargs = '''
-def calcSumProduct2(**inputs):
+def calcSumProductKwargs(**inputs):
     """
     입력된 key-value 값들의 합과 곱을 반환하는 함수 (**kwargs 사용)
     """
@@ -178,7 +178,7 @@ def calcSumProduct2(**inputs):
 '''
 st.code(code_kwargs, language='python')
 
-def calcSumProduct2(**inputs):
+def calcSumProductKwargs(**inputs):
     plus = 0
     multiple = 1
     for _, value in inputs.items():
@@ -186,8 +186,8 @@ def calcSumProduct2(**inputs):
         multiple *= value
     return plus, multiple
 
-sum3, product3 = calcSumProduct2(a=1, b=2)
+sum3, product3 = calcSumProductKwargs(a=1, b=2)
 st.write("입력값: {'a': 1, 'b': 2} → 합:", sum3, ", 곱:", product3)
 
-sum4, product4 = calcSumProduct2(a=1, b=2, c=3, d=4)
+sum4, product4 = calcSumProductKwargs(a=1, b=2, c=3, d=4)
 st.write("입력값: {'a': 1, 'b': 2, 'c': 3, 'd': 4} → 합:", sum4, ", 곱:", product4)
