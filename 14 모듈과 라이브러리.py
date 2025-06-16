@@ -1,6 +1,14 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.DataFrame({
+    'x': [10, 20, 30, 40],
+    'y1': [1, 4, 9, 16],
+    'y2': [11, 24, 9, 6]
+})
+st.line_chart(df.set_index('x'))
 
 st.title("📦 모듈과 라이브러리")
 
